@@ -1,7 +1,12 @@
 package com.example.demojpa4.demo.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
 
+    @Id
     private int id;
     private String name;
     private String authorName;
