@@ -23,8 +23,8 @@ public class DemoApplication implements CommandLineRunner {
 		Book b1 = new Book();
 		b1.setId(101);
 		b1.setCost(1000);
-		b1.setName("XYZ");
-		b1.setAuthorName("ABC");
+		b1.setName("Maths");
+		b1.setAuthorName("Vipul");
 		bookRepository.save(b1);
 		// commandLineRunner is used for removing the temporary files or some other things.
 
