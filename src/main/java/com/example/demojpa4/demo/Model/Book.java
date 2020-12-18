@@ -1,12 +1,11 @@
 package com.example.demojpa4.demo.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Book {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String authorName;
