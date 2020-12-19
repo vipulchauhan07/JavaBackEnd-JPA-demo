@@ -7,6 +7,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
@@ -20,8 +23,18 @@ public class DemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Book b1 = new Book(4, "Art", "Picasso", 200);
-		bookRepository.save(b1);
+		List<Book> bookList = new ArrayList<Book>();
+
+		Book b1 = new Book(2, "Art", "Picasso", 200);
+		Book b2 = new Book(4, "Science", "Newton", 250);
+
+		bookList.add(b1);
+		bookList.add(b2);
+
+		bookRepository.saveAll(bookList);
+
+
+		System.out.println(bookRepository.findAll());
 		// commandLineRunner is used for removing the temporary files or some other things.
 
 	}

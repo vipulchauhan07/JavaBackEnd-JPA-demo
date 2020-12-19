@@ -52,4 +52,10 @@ public class Book {
 
     public Book() {
     }
+
+    @Override
+    public String toString() {
+        return "{ Id " + this.getId() + " Name " + this.getName() + " Author Name " + this.getAuthorName()
+                + " cost " + this.getCost() + "}";
+    }
 }
