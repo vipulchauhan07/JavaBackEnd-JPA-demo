@@ -42,4 +42,14 @@ public class Book {
     public void setCost(int cost) {
         this.cost = cost;
     }
+
+    public Book(int id, String name, String authorName, int cost) {
+        this.id = id;
+        this.name = name;
+        this.authorName = authorName;
+        this.cost = cost;
+    }
+
+    public Book() {
+    }
 }

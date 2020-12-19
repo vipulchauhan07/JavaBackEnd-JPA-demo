@@ -20,11 +20,7 @@ public class DemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Book b1 = new Book();
-		b1.setId(101);
-		b1.setCost(1000);
-		b1.setName("Maths");
-		b1.setAuthorName("Vipul");
+		Book b1 = new Book(4, "Art", "Picasso", 200);
 		bookRepository.save(b1);
 		// commandLineRunner is used for removing the temporary files or some other things.
 
