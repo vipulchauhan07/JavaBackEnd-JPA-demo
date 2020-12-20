@@ -3,10 +3,12 @@ package com.example.demojpa4.demo.Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "my_book")
 public class Book {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     private int id;
+    @Column(name = "book_name")
     private String name;
     private String authorName;
     private int cost;

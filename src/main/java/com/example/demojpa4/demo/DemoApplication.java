@@ -34,7 +34,10 @@ public class DemoApplication implements CommandLineRunner {
 		bookRepository.saveAll(bookList);
 
 
-		System.out.println(bookRepository.findAll());
+//		System.out.println(bookRepository.findAll());
+//		System.out.println(bookRepository.findByAuthorName("Newton"));
+//		System.out.println(bookRepository.findByAuthor("Picasso"));
+		System.out.println(bookRepository.findByAuthors("Newton"));
 		// commandLineRunner is used for removing the temporary files or some other things.
 
 	}
