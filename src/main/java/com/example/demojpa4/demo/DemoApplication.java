@@ -1,6 +1,8 @@
 package com.example.demojpa4.demo;
 
 import com.example.demojpa4.demo.Model.Book;
+import com.example.demojpa4.demo.Model.BookCategory;
+import com.example.demojpa4.demo.Repository.BookCategoryRepository;
 import com.example.demojpa4.demo.Repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -8,7 +10,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
@@ -20,24 +24,31 @@ public class DemoApplication implements CommandLineRunner {
 	@Autowired
 	BookRepository bookRepository;
 
+	@Autowired
+	BookCategoryRepository bookCategoryRepository;
+
+
 	@Override
 	public void run(String... args) throws Exception {
 
-		List<Book> bookList = new ArrayList<Book>();
+		Set<Book> bookList = new HashSet<>();
 
-		Book b1 = new Book(2, "Art", "Picasso", 200);
-		Book b2 = new Book(4, "Science", "Newton", 250);
+
+		bookCategoryRepository.save((new BookCategory("Programming Languages")));
+		bookCategoryRepository.save((new BookCategory("Non-programming Languages")));
+
+		Book b1 = new Book("C Programming ", "Denis Rechie", 200,1);
+		Book b2 = new Book("Python Programming", "von-neh man", 250,1);
+		Book b3 = new Book("Natural Language", "Vipul", 3000,2);
 
 		bookList.add(b1);
 		bookList.add(b2);
+		bookList.add(b3);
+//		bookRepository.saveAll(bookList);
 
 		bookRepository.saveAll(bookList);
 
-
-//		System.out.println(bookRepository.findAll());
-//		System.out.println(bookRepository.findByAuthorName("Newton"));
-//		System.out.println(bookRepository.findByAuthor("Picasso"));
-		System.out.println(bookRepository.findByAuthors("Newton"));
+		System.out.println(bookRepository.findByAuthors("Denis Rechie"));
 		// commandLineRunner is used for removing the temporary files or some other things.
 
 	}
